@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Breast Cancer Recurrence Prediction Applet</title>
+    </head>
+    <body>
+        <h1>Breast Cancer Recurrence Prediction Applet</h1>
+        <form action="/submit" method="POST"></form>
+        <p>
+            <label for="DegMalig">Degree of Malignancy</label><br>
+            <input type="number" name="DegMalig">
+        </p>
+        <p>
+            <input type="radio" id="AgeGroup 30-39" name="AgeGroup 30-39" value=0 checked>
+            <label for="AgeGroup 30-39">0</label>
+            <input type="radio" id="AgeGroup 30-39" name="AgeGroup 30-39" value="1">
+            <label for="AgeGroup 30-39">AgeGroup 30-39</label>
+        </p>
+        <p>
+            <input type="radio" id="AgeGroup 70-79" name="AgeGroup 70-79" value=0 checked>
+            <label for="AgeGroup 70-79">0</label>
+            <input type="radio" id="AgeGroup 70-79" name="AgeGroup 70-79" value="1">
+            <label for="AgeGroup 70-79">AgeGroup 70-79</label>
+        </p>
+        <p>
+            <input type="radio" id="Menopause lt40" name="Menopause lt40" value=0 checked>
+            <label for="Menopause lt40">0</label>
+            <input type="radio" id="Menopause lt40" name="Menopause lt40" value="1">
+            <label for="Menopause lt40">Menopause lt40</label>
+        </p>
+        <p>
+            <input type="radio" id="Menopause premeno" name="Menopause premeno" value=0 checked>
+            <label for="Menopause premeno">0</label>
+            <input type="radio" id="Menopause premeno" name="Menopause premeno" value="1">
+            <label for="Menopause premeno">Menopause premeno</label>
+        </p>
+        <p>
+            <input type="radio" id="TumorSize 20-24" name="TumorSize 20-24" value=0 checked>
+            <label for="TumorSize 20-24">0</label>
+            <input type="radio" id="TumorSize 20-24" name="TumorSize 20-24" value="1">
+            <label for="TumorSize 20-24">TumorSize 20-24</label>
+        </p>
+        <p>
+            <input type="radio" id="TumorSize 25-29" name="TumorSize 25-29" value=0 checked>
+            <label for="TumorSize 25-29">0</label>
+            <input type="radio" id="TumorSize 25-29" name="TumorSize 25-29" value="1">
+            <label for="TumorSize 25-29">TumorSize 25-29</label>
+        </p>
+        <p>
+            <input type="radio" id="TumorSize 30-34" name="TumorSize 30-34" value=0 checked>
+            <label for="TumorSize 30-34">0</label>
+            <input type="radio" id="TumorSize 30-34" name="TumorSize 30-34" value="1">
+            <label for="TumorSize 30-34">TumorSize 30-34</label>
+        </p>
+        <p>
+            <input type="radio" id="TumorSize 50-54" name="TumorSize 50-54" value=0 checked>
+            <label for="TumorSize 50-54">0</label>
+            <input type="radio" id="TumorSize 50-54" name="TumorSize 50-54" value="1">
+            <label for="TumorSize 50-54">TumorSize 50-54</label>
+        </p>
+        <p>
+            <input type="radio" id="InvNodes 12-14" name="InvNodes 12-14" value=0 checked>
+            <label for="InvNodes 12-14">0</label>
+            <input type="radio" id="InvNodes 12-14" name="InvNodes 12-14" value="1">
+            <label for="InvNodes 12-14">InvNodes 12-14</label>
+        </p>
+        <p>
+            <input type="radio" id="InvNodes 15-17" name="InvNodes 15-17" value=0 checked>
+            <label for="InvNodes 15-17">0</label>
+            <input type="radio" id="InvNodes 15-17" name="InvNodes 15-17" value="1">
+            <label for="InvNodes 15-17">InvNodes 15-17</label>
+        </p>
+        <p>
+            <input type="radio" id="InvNodes 24-26" name="InvNodes 24-26" value=0 checked>
+            <label for="InvNodes 24-26">0</label>
+            <input type="radio" id="InvNodes 24-26" name="InvNodes 24-26" value="1">
+            <label for="InvNodes 24-26">InvNodes 24-26</label>
+        </p>
+        <p>
+            <input type="radio" id="InvNodes 3-5" name="InvNodes 3-5" value=0 checked>
+            <label for="InvNodes 3-5">0</label>
+            <input type="radio" id="InvNodes 3-5" name="InvNodes 3-5" value="1">
+            <label for="InvNodes 3-5">InvNodes 3-5</label>
+        </p>
+        <p>
+            <input type="radio" id="InvNodes 6-8" name="InvNodes 6-8" value=0 checked>
+            <label for="InvNodes 6-8">0</label>
+            <input type="radio" id="InvNodes 6-8" name="InvNodes 6-8" value="1">
+            <label for="InvNodes 6-8">InvNodes 6-8</label>
+        </p>
+        <p>
+            <input type="radio" id="InvNodes 9-11" name="InvNodes 9-11" value=0 checked>
+            <label for="InvNodes 9-11">0</label>
+            <input type="radio" id="InvNodes 9-11" name="InvNodes 9-11" value="1">
+            <label for="InvNodes 9-11">InvNodes 9-11</label>
+        </p>
+        <p>
+            <input type="radio" id="NodeCaps yes" name="NodeCaps yes" value=0 checked>
+            <label for="NodeCaps yes">0</label>
+            <input type="radio" id="NodeCaps yes" name="NodeCaps yes" value="1">
+            <label for="NodeCaps yes">NodeCaps yes</label>
+        </p>
+        <p>
+            <input type="radio" id="Quadrant right_up" name="Quadrant right_up" value=0 checked>
+            <label for="Quadrant right_up">0</label>
+            <input type="radio" id="Quadrant right_up" name="Quadrant right_up" value="1">
+            <label for="Quadrant right_up">Quadrant right_up</label>
+        </p>
+        <p>
+            <input type="radio" id="Radiation yes" name="Radiation yes" value=0 checked>
+            <label for="Radiation yes">0</label>
+            <input type="radio" id="Radiation yes" name="Radiation yes" value="1">
+            <label for="Radiation yes">Radiation yes</label>
+        </p>
+        <p><button type="submit">Submit</button></p>
+        </form>
+        
+    </body>
+</html>
