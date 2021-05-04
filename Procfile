@@ -1,1 +1,1 @@
-web: waitress-serve --port=$PORT breastcancer-pred.wsgi:application
+web: gunicorn app:app
