@@ -1,1 +1,1 @@
-web: waitress-serve --port=9696 {breastcancer-pred}.wsgi:application
+web: waitress-serve --port=$PORT {breastcancer-pred}.wsgi:application
