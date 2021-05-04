@@ -5,11 +5,11 @@ import os
 
 app = Flask(__name__)
 
-APP_ROOT = os.path.dirname(os.path.abspath(__file__)) # sets the file directory path
+# APP_ROOT = os.path.dirname(os.path.abspath(__file__)) # sets the file directory path
 
-MODEL_PATH = os.path.join(APP_ROOT, "./model_files/prod_model.pkl") # sets the path to the model
+# MODEL_PATH = os.path.join(APP_ROOT, "./model_files/prod_model.pkl") # sets the path to the model
 
-model = pickle.load(open(MODEL_PATH, "rb")) # loads the pickled model
+model = pickle.load(open("./model_files/prod_model.pkl", "rb")) # loads the pickled model
 
 # routes 
 @app.route("/") # render the website
