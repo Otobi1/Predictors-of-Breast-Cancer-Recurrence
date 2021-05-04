@@ -1,1 +1,1 @@
-web: gunicorn wsgi:app
+web: waitress-serve --port=9696 {breastcancer-pred}.wsgi:application
