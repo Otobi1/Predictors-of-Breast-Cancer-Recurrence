@@ -17,7 +17,7 @@ model = pickle.load(open("./model_files/prod_model.pkl", "rb")) # loads the pick
 def index():
     return render_template("index.html")
 
-@app.route("/submit", methods=["GET", "POST"]) # submit the form
+@app.route("/submit", methods=["POST"]) # submit the form
 
 def make_prediction():
     features = [int(x) for x in request.form.values()] # take the values of the form as a list
