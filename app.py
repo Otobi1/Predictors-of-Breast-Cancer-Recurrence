@@ -23,7 +23,7 @@ def make_prediction():
     features = [int(x) for x in request.form.values()] # take the values of the form as a list
     final_features = [np.array(features)] # convert the values into a numpy array
     prediction = model.predict(final_features) # pass the array into the mode fro prediction
-    return render_template("index.html", prediction = prediction[0]) # render the prediction page
+    return render_template("prediction.html", prediction = prediction[0]) # render the prediction page
 
 if __name__ =="__main__":
     app.run(debug=True)
