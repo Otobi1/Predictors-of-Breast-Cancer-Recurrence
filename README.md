@@ -151,8 +151,6 @@ Classification Report for the Support Vector Classifier:
 
 accuracy score: 0.7638888888888
 
-- Perhaps understand and explain the bias variance trade off and the peculiarity of each model type and the ensembles
-
 ### Exploring the Coefficients
 
 The keys (variable labels) of the model inputs X were mapped into a keys dataframe. After that, the coefficients of the logistic regression was explored and placed in a dataframe as follows and further explored in a bar plot to identify which variables are key to the prediction.
