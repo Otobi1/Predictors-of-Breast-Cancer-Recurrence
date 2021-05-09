@@ -11,7 +11,7 @@
 
 ## Exploratory Data Analysis
 
-*Data Loading*: The data was loaded directly into Google Colab as follows
+*Data Loading*: The data was loaded directly into [Google Colab](https://github.com/Otobi1/Predictors-of-Breast-Cancer-Recurrence/blob/master/notebooks/Predictors_of_Cancer_Recurrence.ipynb) as follows
 
 ```bash
 !wget http://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer/breast-cancer.data
@@ -127,8 +127,73 @@ def pretty_confusion_matrix(y_true, y_pred):
 pretty_confusion_matrix(y_test, svc_preds)
 ```
 
+![Sample of the cool confusion matrix for the Support Vector Classifier](https://github.com/Otobi1/Predictors-of-Breast-Cancer-Recurrence/blob/master/screenshots/confusion%20matrix.PNG)
+
+### Classification Report
+
+Further evaluation was done using the classification report, which includes details on the precision, recall, f1-score and support on each of the RecClass outcomes.
+
+```bash
+print (f'confusion matrix:\n {confusion_matrix(y_test, svc_preds)}')
+print (f'classification report:\n {classification_report(y_test, svc_preds)}')
+print (f'accuracy score:\n {accuracy_score(y_test, svc_preds)}')
+```
+
+Classification Report for the Support Vector Classifier:
+
+| Parameter             | precision | recall | f1-score | support |
+| :-------------------- | :-------- | :----- | :------- | :------ |
+|no-reccurence-events   |   0.78    |   0.92 |   0.85   |   51    |
+|   recurrence-events   |   0.67    |   0.38 |   0.48   |   21    |
+|            accuracy   |           |        |   0.76   |   72    |
+|           macro avg   |   0.72    |   0.65 |   0.67   |   72    |
+|        weighted avg   |   0.75    |   0.76 |   0.74   |   72    |
+
+accuracy score: 0.7638888888888
+
 - Perhaps understand and explain the bias variance trade off and the peculiarity of each model type and the ensembles
 
-## Model Selection and Packaging
+### Exploring the Coefficients
+
+The keys (variable labels) of the model inputs X were mapped into a keys dataframe. After that, the coefficients of the logistic regression was explored and placed in a dataframe as follows and further explored in a bar plot to identify which variables are key to the prediction.
+
+```bash
+# Putting the coefficients of the logistic regression in a dataframe
+
+# Check the unique classes of the output (y feature)
+classes = gs_lr.best_estimator_.steps[0][1].classes_
+
+# Map the coefficients of the best estimator to the coefs dataframe
+coefs = gs_lr.best_estimator_.steps[0][1].coef_
+
+# Input features mapped into the Feature dataframe
+Feature = X.columns
+
+# Mapping the coefs and the features into the coefs dataframe
+coefs_df = pd.DataFrame(coefs[0], Feature, columns=['coef']).sort_values(by='coef', ascending=False)
+
+# Resetting the coefs_df index (the features were originally the index)
+coefs_df = coefs_df.reset_index()
+
+# Renaming the index to features
+coefs_df.rename(columns={'index':'features'}, inplace=True)
+
+# Checking the coefs_df dataframe
+coefs_df
+```
+
+## Production Model
+
+For the [production model](https://github.com/Otobi1/Predictors-of-Breast-Cancer-Recurrence/blob/master/notebooks/Predictors_of_Cancer_Recurrence_Production_Model.ipynb), the least impact variables were removed from the original preprocessed dataset, leaving a total of 19 variables which were modelled in the same way as the initial modelling process. The random forest model was selected based on the outcomes of the new modelling and pickled for production.
+
+```bash
+with open('prod_model.pkl', 'wb') as f_out:
+  pickle.dump(gs_forest, f_out)
+  f_out.close()
+```
 
 ## Deployment
+
+[Flask API](https://github.com/Otobi1/Predictors-of-Breast-Cancer-Recurrence/blob/master/app.py)
+
+[Brest Cancer Recurrence Prediction App](https://breastcancer-pred.herokuapp.com/)
