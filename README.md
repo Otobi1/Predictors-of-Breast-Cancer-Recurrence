@@ -101,6 +101,13 @@ the peculiarities of each model and the evaluation outcomes.
 
 - *Voting Classifier*: Almost overfits on the training data at 96% accuracy, a cross val score of 73% and test score of 72%.
 
+### Bias - Variance Tradeoff
+
+Bias describes the difference between the model's prediction and the actual value the model tries to predict.
+Variance describes the variability of a model's prediction for a given data point. Models with high bias oversimplifies on the training data (generalises too much) and also performs poorly on the test data, while models that have high variance performs too well on the training data and fails to generalise enough leading to poor performance on the test data. Underfitting occurs when the model is unable to capture the underlying pattern of the data. Such models have high bias and low variance (typically seen when linear models are used on non-linear data). Overfitting on the other hand occurs when models capture nose together with the patterns of the data. These models have low bias and high variance (such as decision trees).
+
+The bias-variance tradeoff aims to provide a good balance  between bias and variance without overfitting or underfitting the data. See [Understanding the Bias-Variance Tradeoff](https://towardsdatascience.com/understanding-the-bias-variance-tradeoff-165e6942b229) for more details.
+
 ### Confusion Matrix
 
 Predictions were gotten from the model by fitting them on the test data split and this was fed in turn into the function below to generate the confusion matrix.
@@ -194,4 +201,4 @@ with open('prod_model.pkl', 'wb') as f_out:
 
 [Flask API](https://github.com/Otobi1/Predictors-of-Breast-Cancer-Recurrence/blob/master/app.py)
 
-[Brest Cancer Recurrence Prediction App](https://breastcancer-pred.herokuapp.com/)
+[Breast Cancer Recurrence Prediction App](https://breastcancer-pred.herokuapp.com/)
