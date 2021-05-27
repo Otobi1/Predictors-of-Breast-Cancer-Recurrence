@@ -28,17 +28,17 @@ df = pd.read_csv('breast-cancer.data', sep=',', names=['RecClass', 'Age', 'Menop
 
 *Variable Types*: The data contained 286 observations and 10 variables and all the variables were of the object type
 except the "DegMalig". In addition to the exploration of the dataframe, the "data[variable].unique" revealed the specific
-categories of possibilities within each variable. Substitute the "variable" with the actual label.
+categories of possibilities within each variable. _**Substitute the "variable" with the actual label**_.
 
 *Independent and Dependent Variable*: All the variables are dependent except the "RecClass" variable, which specifies whether there
 was a "recurrence-event" or "no-recurrence-event".
 
 ## Preprocessing/Feature Enginnering/Dummy Variables
 
-*Categorical to Integers*: For the categorical variables, dummies were created as follows. Note that "Variable" here is
+*Categorical to Integers*: For the categorical variables, dummies were created as shown below. Note that **"Variable"** here is
 a placeholder for the categorical variables. To prevent multicollinearity (dummy variable trap), the first of new columns
-was dropped. Also, the original variable is dropped from the dataframe the new dataframe is concatenated with the original one.
-This is done for all the categorical variables. (Next time, would perhaps use the LabelEncoder class of Sklearn)
+was dropped. Also, the original variable is dropped from the dataframe and the new dataframe with the dummy variables is
+concatenated with the original one. This is done for all the categorical variables. (Next time, I'd perhaps use the LabelEncoder class of Sklearn)
 The dummy variable creation process changed the dimensions of the dataframe into 286 observations and 34 varaibles, all of which
 became the integer variable type except the "RecClass" which will be predicted.
 
@@ -54,7 +54,7 @@ data = pd.concat([data, Variable], axis=1)
 
 *Mapping, Splitting and Standardisation*: All numeric variables were mapped as the input variable X, and the outcome,
 which is a categorical variable was mapped as y. After that the mapped dataset was split into training and test datasets.
-A validation dataset was not quite necessary as it was a small sample size (arguable). In the splitting, the outcome y was
+A validation dataset was not quite necessary as it is a small sample size (arguable). In the splitting, the outcome y was
 used as the stratification parameter to ensure a fairly balanced division. The sizes of the training and testing split was
 further explored just because and the class distribution further explored as follows.
 
@@ -76,8 +76,8 @@ Lastly, the input X was standardised to ensure a mean of approximately 0 and sta
 ## Modelling and Evaluation
 
 *Overview*: Several classification models from the Sklearn's library was used. Each model was evaluated by comparing the
-Predicted and the Actual RecClass, the training score, cross validation score and the test score. The following describes
-the peculiarities of each model and the evaluation outcomes.
+Predicted and the Actual Reccurrence outcomes, the training score, cross validation score and the test score. The following describes
+the evaluation outcomes.
 
 - *Logistic Regression*: used a pipeline and parameters including the l1 penalty and the liblinear solver. The grid search
   for the best estimator used a cv of 5, accuracy scoring and 2 number of jobs. The model had a training score of 78%, a
@@ -104,13 +104,13 @@ the peculiarities of each model and the evaluation outcomes.
 ### Bias - Variance Tradeoff
 
 Bias describes the difference between the model's prediction and the actual value the model tries to predict.
-Variance describes the variability of a model's prediction for a given data point. Models with high bias oversimplifies on the training data (generalises too much) and also performs poorly on the test data, while models that have high variance performs too well on the training data and fails to generalise enough leading to poor performance on the test data. Underfitting occurs when the model is unable to capture the underlying pattern of the data. Such models have high bias and low variance (typically seen when linear models are used on non-linear data). Overfitting on the other hand occurs when models capture nose together with the patterns of the data. These models have low bias and high variance (such as decision trees).
+Variance describes the variability of a model's prediction for a given data point. Models with high bias oversimplifies on the training data (generalises too much) and also performs poorly on the test data, while models that have high variance performs too well on the training data and fails to generalise enough leading to poor performance on the test data. Underfitting occurs when the model is unable to capture the underlying pattern of the data. Such models have high bias and low variance (typically seen when linear models are used on non-linear data). Overfitting on the other hand occurs when models capture noise together with the patterns of the data. These models have low bias and high variance (such as decision trees).
 
 The bias-variance tradeoff aims to provide a good balance  between bias and variance without overfitting or underfitting the data. See [Understanding the Bias-Variance Tradeoff](https://towardsdatascience.com/understanding-the-bias-variance-tradeoff-165e6942b229) for more details.
 
 ### Confusion Matrix
 
-Predictions were gotten from the model by fitting them on the test data split and this was fed in turn into the function below to generate the confusion matrix.
+Predictions were gotten from the model by fitting them on the test data split and this was fed in turn into the function below to generate the confusion matrix. For this case, there are two possible prediction classes "no reccurence events" and "reccurence events" and as shown in the image below, True Positives (TP) describes the cases in which the model predicted "reccurence events and there are reccurence events and True Negatives (TN) are the cases where the model predicted no recurrence events and there are no recurrence events. In contrast, the False Positive (FP) describes the cases where the model predicted reccurrence events and there were actually no recurrence events and for the False Negatives (FN), the model predicted no recurrence events for cases with actual recurrence events. This [paper](https://www.dataschool.io/simple-guide-to-confusion-matrix-terminology/#:~:text=A%20confusion%20matrix%20is%20a,related%20terminology%20can%20be%20confusing.) further describes some additional confusion matrix concepts succinctly.
 
 ```bash
 def pretty_confusion_matrix(y_true, y_pred):
