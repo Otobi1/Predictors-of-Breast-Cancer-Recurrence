@@ -5,7 +5,7 @@
 
 ## Data Collection
 
-*Source and Description*: Data was sourced from the [UCI Machine Learning Data Archive](http://archive.ics.uci.edu/ml/datasets/Breast+Cancer). Alongside the description in the data repository, further description is available on this [paper](https://www.causeweb.org/usproc/sites/default/files/usclap/2018-1/Predictors_for_Breast_Cancer_Recurrence.pdf)
+*Source and Description*: Data was sourced from the [UCI Machine Learning Data Archive](http://archive.ics.uci.edu/ml/datasets/Breast+Cancer). Alongside the description in the data repository, further description is available in this [paper](https://www.causeweb.org/usproc/sites/default/files/usclap/2018-1/Predictors_for_Breast_Cancer_Recurrence.pdf)
 
 *Objective*: Predicting the recurrence of breast cancer based on selected variables.
 
@@ -18,7 +18,7 @@
 ```
 
 After loading, the data was read as a csv file using the pandas dataframe. Column names had to be included
-in the as part of the dataframe attributes as the data originally had no labels.
+as part of the dataframe attributes since the data originally had no labels.
 
 ```bash
 df = pd.read_csv('breast-cancer.data', sep=',', names=['RecClass', 'Age', 'Menopause',
