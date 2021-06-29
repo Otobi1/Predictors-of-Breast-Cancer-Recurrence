@@ -1,8 +1,5 @@
 # Predictors-of-Breast-Cancer-Recurrence
 
-- perhaps refer to the notebooks and the .py files within the documentation.
-- a dash makes a list item with bullet points, interesting
-
 ## Data Collection
 
 *Source and Description*: Data was sourced from the [UCI Machine Learning Data Archive](http://archive.ics.uci.edu/ml/datasets/Breast+Cancer). Alongside the description in the data repository, further description is available in this [paper](https://www.causeweb.org/usproc/sites/default/files/usclap/2018-1/Predictors_for_Breast_Cancer_Recurrence.pdf)
