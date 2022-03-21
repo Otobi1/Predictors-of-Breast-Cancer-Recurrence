@@ -43,7 +43,7 @@ sphinxcontrib-qthelp==1.0.3
 sphinxcontrib-serializinghtml==1.1.4
 threadpoolctl==2.1.0
 urllib3>=1.26.5
-waitress==2.0.0
+waitress==2.1.1
 Werkzeug==1.0.1
 yapf==0.31.0
 zict==2.0.0
